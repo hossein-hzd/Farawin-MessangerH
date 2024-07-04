@@ -407,7 +407,7 @@
                 $(".liedit").css('background','#E6E6FA')
                 var liedit=document.getElementById(d)
                 liedit.style.background='green';
-                $("#hcontactname").text(name)
+                $("#hcontactname").text(""+name+"  online")
                 
                 $.ajax({
                             url: "<?= URL; ?>index/contact_massage",
