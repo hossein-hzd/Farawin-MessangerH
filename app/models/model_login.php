@@ -16,7 +16,8 @@ class model_login extends Model
         $result = $this->doSelect($sql, $params);
 
         if (sizeof($result) == 0) {
-            echo json_encode(array(
+            echo json_encode(
+                array(
                     "msg" => "not found",
                     "status_code"=>  "404"
                 )
