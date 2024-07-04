@@ -18,6 +18,7 @@ class model_login extends Model
         if (sizeof($result) == 0) {
             echo json_encode(
                 array(
+                  
                     "msg" => "not found",
                     "status_code"=>  "404"
                 )
