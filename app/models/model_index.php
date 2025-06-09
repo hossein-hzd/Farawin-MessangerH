@@ -71,7 +71,7 @@ class model_index extends Model
         if($_POST['contactname']=='')
         {echo json_encode(array(
             "msg" =>2,
-            "status_code"=>  "302"
+            "status_code"=>  "302",
         )) ;}  
          
         else
