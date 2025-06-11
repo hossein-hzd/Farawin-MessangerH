@@ -20,7 +20,7 @@ class model_register extends model
             echo json_encode(
                 array(
                     "msg" => "ok",
-                    "status_code"=>  "200"
+                    "status_code"=>  "200",
                 )
             );
            
