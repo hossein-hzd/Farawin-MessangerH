@@ -11,7 +11,7 @@ class model_login extends Model
 
     function check_data($post)
     {
-        $sql = "SELECT * FROM users WHERE user=? and password=?";
+        $sql = "SELECT * FROM usersm WHERE user=? and password=?";
         $params = array($post['username'], md5($post['password']));
         $result = $this->doSelect($sql, $params);
 
@@ -19,7 +19,7 @@ class model_login extends Model
             echo json_encode(
                 array(
                   
-                    "msg" => "not found",
+                    "msg" => "not f",
                     "status_code"=>  "404"
                 )
             );

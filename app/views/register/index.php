@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="fa" dir="rtl">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +16,6 @@
     }
   </style>
 </head>
-
 <body class="d-flex align-items-center py-4 bg-light">
   <main class="form-signin w-30 m-auto">
     <form id="registerForm" onsubmit="return false;">
@@ -37,23 +35,22 @@
   </main>
   <script src="public/js/jquery-3.4.1.min.js"></script>
   <script>
-    function checkuser(inputuser) {
-      var user = /^(?:(?:(?:\\+?|00)(98))|(0))?((?:90|91|92|93|99)[0-9]{8})$/;
+    function checkuser(inputuser){
+      var user=/^(?:(?:(?:\\+?|00)(98))|(0))?((?:90|91|92|93|99)[0-9]{8})$/;
       return user.test(inputuser);
     }
-
-    function CheckPassword(inputtxt) {
-      var passw = /^(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+    function CheckPassword(inputtxt){
+      var passw = /^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
       return passw.test(inputtxt);
     }
-    $("#btnRegister").on('click', function() {
+    $("#btnRegister").on('click', function (){
       var username = $("#username").val();
       var password = $("#password").val();
-      if (username === "" || password === "") {
+      if(username === "" || password === ""){
         $("#showError").text("موبایل یا پسورد خالی است");
-      } else if (!checkuser(username)) {
+      } else if (!checkuser(username)){
         $("#showError").text("موبایل معتبر نیست");
-      } else if (!CheckPassword(password)) {
+      } else if (!CheckPassword(password)){
         $("#showError").text("پسورد باید شامل حروف بزرگ، کوچک و عدد باشد و بین 6 تا 20 کاراکتر باشد");
       } else {
         $.ajax({
@@ -63,17 +60,17 @@
             "username": username,
             "password": password
           },
-          success: function(response) {
+          success: function (response){
             response = JSON.parse(response);
-            if (response.status_code === "200") {
+            if(response.status_code === "200"){
               window.location = "<?= URL ?>login";
-            } else if (response.status_code === "404") {
+            } else if(response.status_code === "404"){
               $("#showError").text("نام کاربری قبلا ثبت شده است");
             } else {
               $("#showError").text("خطا در ثبت نام");
             }
           },
-          error: function() {
+          error: function (){
             $("#showError").text("خطا در ارتباط با سرور");
           }
         });
@@ -81,5 +78,4 @@
     });
   </script>
 </body>
-
 </html>

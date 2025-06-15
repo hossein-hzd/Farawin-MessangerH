@@ -462,7 +462,8 @@
             } else {
 
                 $.ajax({
-                    url: "<?= URL; ?>index/contact_data",
+                    url: "index.php?url = index / contact_data ",
+                    
                     type: "POST",
                     data: {
                         "contactName": contactName,

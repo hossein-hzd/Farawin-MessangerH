@@ -25,7 +25,7 @@ class model_index extends Model
         ));}
         
         else {
-            $sql = "SELECT * FROM contact WHERE contact_id=? AND user_id=?";
+            $sql = "SELECT * FROM contacts WHERE contact_id=? AND user_id=?";
             $params = array($result[0]['id'],$this->session_get('id'));
             $res = $this->doSelect($sql, $params);
             if (sizeof($res) != 0) {
@@ -39,7 +39,7 @@ class model_index extends Model
 
             else
            {
-            $sql = "INSERT INTO contact (contact_id,user_id,name) VALUES (?,?,?)";
+            $sql = "INSERT INTO contacts (contact_id,user_id,name) VALUES (?,?,?)";
             $params = array($result[0]['id'],$this->session_get('id'),$post['contactName'] );
             $this->doQuery($sql, $params);
             echo json_encode(array(
@@ -50,7 +50,7 @@ class model_index extends Model
         }
     }
     function get_contact_data($post){
-        $sql = "SELECT * FROM contact WHERE user_id=?";
+        $sql = "SELECT * FROM contacts WHERE user_id=?";
         $params = array($this->session_get('id'));
         $result = $this->doSelect($sql, $params);
        
@@ -75,7 +75,7 @@ class model_index extends Model
         )) ;}  
          
         else
-           { $sql=" UPDATE `contact` SET `name` = ? WHERE `contact_id` =?";
+           { $sql=" UPDATE `contacts` SET `name` = ? WHERE `contact_id` =?";
             $params = array($_POST['contactname'] ,$this->session_get('contactid'));
             $this->doQuery($sql, $params);
             echo json_encode(array(
